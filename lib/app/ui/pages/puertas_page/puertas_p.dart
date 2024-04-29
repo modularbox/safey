@@ -19,7 +19,7 @@ class PuertasPage extends GetView<PuertasController> {
       appBar: AppBar(
         title: Text(
           'Hola Miguel!',
-          style: LightModeTheme().bodyLarge.copyWith(fontSize: 20),
+          style: LightModeTheme().bodyLarge.copyWith(fontSize: 40),
         ),
       ),
       body: SafeArea(
@@ -33,9 +33,8 @@ class PuertasPage extends GetView<PuertasController> {
                     children: [
                       Text(
                         'Selecciona la puerta',
-                        style: LightModeTheme()
-                            .bodyLarge
-                            .copyWith(color: LightModeTheme().primary),
+                        style: LightModeTheme().bodyLarge.copyWith(
+                            color: LightModeTheme().primary, fontSize: 30),
                         textAlign: TextAlign.center,
                       ),
                       Expanded(
@@ -79,7 +78,7 @@ class PuertasPage extends GetView<PuertasController> {
               height: Get.height,
               onPressed: () {
                 ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
-                Timer(const Duration(milliseconds: 400), () {
+                Timer(const Duration(seconds: 1), () {
                   Get.offAllNamed(Routes.SAFEY);
                 });
                 Get.dialog(Container(
@@ -89,16 +88,18 @@ class PuertasPage extends GetView<PuertasController> {
                     children: [
                       BtnIcon(
                           onPressed: Get.back,
+                          fillColor: Colors.white,
                           icon: Icon(
                             Icons.check_circle_sharp,
-                            size: 300,
+                            size: 200,
                             color: LightModeTheme().success,
                           )),
                       Text(
                         'Puerta abierta',
+                        textAlign: TextAlign.center,
                         style: LightModeTheme().bodyLarge.copyWith(
                             color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 80,
+                            fontSize: 60,
                             decoration: TextDecoration.none),
                       )
                     ],
