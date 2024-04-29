@@ -58,10 +58,10 @@ class PuertasPage extends GetView<PuertasController> {
                   ),
                 ))),
       ),
-      bottomNavigationBar: SizedBox(
-        height: 50,
-        child: buildBotones(),
-      ),
+      // bottomNavigationBar: SizedBox(
+      //   height: 50,
+      //   child: buildBotones(),
+      // ),
     );
   }
 
@@ -80,7 +80,23 @@ class PuertasPage extends GetView<PuertasController> {
                   : null,
               width: Get.width,
               height: Get.height,
-              onPressed: () => self.selectPuerta = p.id,
+              onPressed: () {
+                ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
+                Timer(const Duration(milliseconds: 400), () {
+                  Get.offAllNamed(Routes.SAFEY);
+                });
+                Get.dialog(SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: BtnIcon(
+                      onPressed: Get.back,
+                      icon: Icon(
+                        Icons.check_circle_sharp,
+                        size: 300,
+                        color: LightModeTheme().success,
+                      )),
+                ));
+              },
               icon: const SizedBox.shrink()),
         ],
       );

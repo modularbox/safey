@@ -51,7 +51,8 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
           if (callback) {
             ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
           } else {
-            ButtonsSounds.playSound(sound: "assets/audios/error_pin.wav");
+            print("dsfknsodfnosdf");
+            ButtonsSounds.playSound(sound: "assets/audios/error_pin2.wav");
           }
         }
       }
@@ -84,7 +85,6 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
     } else {
       pin += letra;
     }
-    print(pin);
   }
 }
 

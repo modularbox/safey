@@ -26,23 +26,20 @@ class SafeyPage extends GetView<SafeyController> {
                   children: [
                     buildAppBar(context),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: GridView(
-                            padding: EdgeInsets.zero,
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              crossAxisSpacing: 5,
-                              mainAxisSpacing: 5,
-                              childAspectRatio: 1,
-                            ),
-                            scrollDirection: Axis.vertical,
-                            children: self.keyboards
-                                .map((e) => buildKeyButton(e))
-                                .toList()),
-                      ),
+                      child: GridView(
+                          padding: const EdgeInsets.all(20.0),
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 5,
+                            childAspectRatio: 1,
+                          ),
+                          scrollDirection: Axis.vertical,
+                          children: self.keyboards
+                              .map((e) => buildKeyButton(e))
+                              .toList()),
                     ),
                   ],
                 ),
@@ -61,13 +58,13 @@ class SafeyPage extends GetView<SafeyController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
-                'assets/images/logo_modularbox.png',
+                'assets/images/logo_fiware.png',
                 width: 100,
                 fit: BoxFit.fitWidth,
               ),
               Image.asset(
                 'assets/images/logo_badajoz.png',
-                width: 40,
+                width: 60,
                 fit: BoxFit.fitWidth,
               )
             ],
@@ -83,6 +80,9 @@ class SafeyPage extends GetView<SafeyController> {
                     color: LightModeTheme().primary,
                     letterSpacing: 0,
                   ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Obx(buildLuz)
           ]),
