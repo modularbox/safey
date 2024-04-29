@@ -88,7 +88,7 @@ class PuertasPage extends GetView<PuertasController> {
                     children: [
                       BtnIcon(
                           onPressed: Get.back,
-                          fillColor: Colors.white,
+                          fillColor: const Color.fromARGB(0, 0, 0, 0),
                           icon: Icon(
                             Icons.check_circle_sharp,
                             size: 200,
