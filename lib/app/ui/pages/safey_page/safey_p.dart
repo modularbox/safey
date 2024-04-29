@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:safey/app/ui/utils/btn_icon.dart';
 import 'package:safey/flutter_flow/flutter_flow_animations.dart';
@@ -12,101 +14,108 @@ class SafeyPage extends GetView<SafeyController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SizedBox(
-              width: 480.0,
-              height: 710.0,
-              child: // Generated code for this Column Widget...
-                  SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    buildAppBar(context),
-                    Expanded(
-                      child: GridView(
-                          padding: const EdgeInsets.all(20.0),
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 5,
-                            mainAxisSpacing: 5,
-                            childAspectRatio: 1,
-                          ),
-                          scrollDirection: Axis.vertical,
-                          children: self.keyboards
-                              .map((e) => buildKeyButton(e))
-                              .toList()),
-                    ),
-                  ],
-                ),
-              )),
-        ),
+      body: Center(
+        child: SizedBox(
+            width: 480.0,
+            height: 710.0,
+            child: // Generated code for this Column Widget...
+                SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  buildAppBar(context),
+                  Expanded(
+                    child: GridView(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 5,
+                          mainAxisSpacing: 5,
+                          childAspectRatio: 1,
+                        ),
+                        scrollDirection: Axis.vertical,
+                        children: self.keyboards
+                            .map((e) => buildKeyButton(e))
+                            .toList()),
+                  ),
+                ],
+              ),
+            )),
       ),
     );
   }
 
   Widget buildAppBar(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                'assets/images/logo_fiware.png',
-                width: 100,
-                fit: BoxFit.fitWidth,
-              ),
-              Image.asset(
-                'assets/images/logo_badajoz.png',
-                width: 60,
-                fit: BoxFit.fitWidth,
-              )
-            ],
+    return SizedBox(
+      height: 120.0,
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        children: [
+          Positioned(
+            left: 5.0,
+            top: 40,
+            child: Image.asset(
+              'assets/images/logo_fiware.png',
+              width: 100,
+              fit: BoxFit.fitWidth,
+            ),
           ),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              'Safey',
-              style: LightModeTheme().headlineLarge.override(
-                    fontFamily: 'Outfit',
-                    color: LightModeTheme().primary,
-                    letterSpacing: 0,
-                  ),
+          Positioned(
+            right: 10.0,
+            child: Image.asset(
+              'assets/images/logo_badajoz.png',
+              width: 70,
+              fit: BoxFit.fitWidth,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Obx(buildLuz)
-          ]),
-        ),
-      ],
+          ),
+          Positioned(
+            left: 115.0,
+            top: 5.0,
+            child: Obx(buildLuz),
+          ),
+          Positioned(
+              left: 122,
+              top: 18,
+              child: SizedBox(
+                width: 300,
+                height: 100,
+                child: TextField(
+                  controller: self.pinController,
+                  enabled: false,
+                  style: LightModeTheme()
+                      .bodyLarge
+                      .copyWith(fontSize: 90, letterSpacing: 10),
+                  decoration: const InputDecoration(border: InputBorder.none),
+                ),
+              )),
+        ],
+      ),
     );
   }
 
   Widget buildLuz() {
-    final color = self.validarPin == null
+    final colorShadow = self.validarPin == null
         ? Colors.black
         : (self.validarPin!
             ? LightModeTheme().success
             : LightModeTheme().error);
+    final colorBackground = self.validarPin == null
+        ? Colors.white
+        : const Color.fromARGB(113, 255, 255, 255);
     return Container(
-      width: 120,
-      height: 15,
+      width: 280,
+      height: 100,
       decoration: BoxDecoration(
-          color: color,
+          color: colorBackground,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
                 blurRadius: 8,
-                color: color,
+                color: colorShadow,
                 offset: const Offset(0, 0),
                 blurStyle: BlurStyle.normal)
           ]),

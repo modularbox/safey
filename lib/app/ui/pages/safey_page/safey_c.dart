@@ -18,6 +18,7 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
 
   bool? backValidarPin;
   String pin = '';
+  final pinController = TextEditingController(text: '');
 
   int repeticionLuz = 0;
 
@@ -51,7 +52,6 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
           if (callback) {
             ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
           } else {
-            print("dsfknsodfnosdf");
             ButtonsSounds.playSound(sound: "assets/audios/error_pin2.wav");
           }
         }
@@ -85,6 +85,7 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
     } else {
       pin += letra;
     }
+    pinController.text = '*' * pin.length;
   }
 }
 

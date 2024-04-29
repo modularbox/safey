@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:safey/app/routes/app_pages.dart';
 import 'package:safey/app/ui/utils/btn_icon.dart';
@@ -85,16 +86,27 @@ class PuertasPage extends GetView<PuertasController> {
                 Timer(const Duration(milliseconds: 400), () {
                   Get.offAllNamed(Routes.SAFEY);
                 });
-                Get.dialog(SizedBox(
-                  height: 100,
-                  width: 200,
-                  child: BtnIcon(
-                      onPressed: Get.back,
-                      icon: Icon(
-                        Icons.check_circle_sharp,
-                        size: 300,
-                        color: LightModeTheme().success,
-                      )),
+                Get.dialog(Container(
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      BtnIcon(
+                          onPressed: Get.back,
+                          icon: Icon(
+                            Icons.check_circle_sharp,
+                            size: 300,
+                            color: LightModeTheme().success,
+                          )),
+                      Text(
+                        'Puerta abierta',
+                        style: LightModeTheme().bodyLarge.copyWith(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 80,
+                            decoration: TextDecoration.none),
+                      )
+                    ],
+                  ),
                 ));
               },
               icon: const SizedBox.shrink()),
