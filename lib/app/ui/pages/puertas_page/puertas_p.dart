@@ -59,10 +59,6 @@ class PuertasPage extends GetView<PuertasController> {
                   ),
                 ))),
       ),
-      // bottomNavigationBar: SizedBox(
-      //   height: 50,
-      //   child: buildBotones(),
-      // ),
     );
   }
 

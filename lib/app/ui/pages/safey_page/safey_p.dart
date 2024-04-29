@@ -79,7 +79,7 @@ class SafeyPage extends GetView<SafeyController> {
           ),
           Positioned(
               left: 122,
-              top: 18,
+              top: 10,
               child: SizedBox(
                 width: 300,
                 height: 100,
