@@ -13,12 +13,6 @@ class PuertasPage extends GetView<PuertasController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Hola Miguel!',
-          style: LightModeTheme().bodyLarge.copyWith(fontSize: 40),
-        ),
-      ),
       body: SafeArea(
         child: Center(
             child: SizedBox(
@@ -28,6 +22,11 @@ class PuertasPage extends GetView<PuertasController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Text(
+                        'Hola Miguel!',
+                        style:
+                            LightModeTheme().bodyLarge.copyWith(fontSize: 40),
+                      ),
                       Text(
                         'Selecciona la puerta',
                         style: LightModeTheme().bodyLarge.copyWith(
