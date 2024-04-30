@@ -1,6 +1,8 @@
-import 'package:just_audio/just_audio.dart';
+// import 'package:just_audio/just_audio.dart';
 import "package:minisound/minisound.dart" as minisound;
+import 'package:audioplayers/audioplayers.dart';
 
+// ...
 void sss() async {
   final engine = minisound.Engine();
   await engine.init();
@@ -20,12 +22,15 @@ class ButtonsSounds {
     final soundPath = sound ?? "assets/sounds/click_button.mp3";
     print(soundPath);
     try {
-      final engine = minisound.Engine();
-      await engine.init();
-      final sound = await engine.loadSoundAsset(soundPath);
-      sound.volume = 0.5;
-      await engine.start();
-      sound.play();
+// final player = AudioPlayer();
+      await audioPlayer.play(AssetSource(soundPath));
+
+      // final engine = minisound.Engine();
+      // await engine.init();
+      // final sound = await engine.loadSoundAsset(soundPath);
+      // sound.volume = 0.5;
+      // await engine.start();
+      // sound.play();
       // await audioPlayer.setAsset(soundPath);
       // audioPlayer.seek(Duration.zero);
       // audioPlayer.play();
