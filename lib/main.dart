@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:safey/app/routes/app_pages.dart';
 import 'package:safey/app/ui/pages/safey_page/safey_b.dart';
 
-void main() {
+void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: Routes.SAFEY,
