@@ -3,6 +3,7 @@ import 'package:just_audio/just_audio.dart';
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
   static AudioPlayer audioPlayer = AudioPlayer();
+  // static AudioPlayer audioPlayer = AudioPlayer();
   // Función para reproducir el sonido
   static void playSound({String? sound}) async {
     print(
