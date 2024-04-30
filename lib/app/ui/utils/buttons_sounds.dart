@@ -1,4 +1,6 @@
-import 'package:just_audio/just_audio.dart';
+// import 'package:just_audio/just_audio.dart';
+
+import 'package:audioplayers/audioplayers.dart';
 
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
@@ -11,9 +13,10 @@ class ButtonsSounds {
     final soundPath = sound ?? "assets/sounds/click_button.mp3";
     print(soundPath);
     try {
-      await audioPlayer.setAsset(soundPath);
+      // UrlSource(url)
+      // await audioPlayer.setAsset(soundPath);
       audioPlayer.seek(Duration.zero);
-      audioPlayer.play();
+      audioPlayer.play(AssetSource(soundPath));
     } catch (e) {
       print(e);
     }

@@ -76,10 +76,12 @@ dependencies:
   get: ^4.6.6
   file_picker: ^6.1.1
   image: ^4.0.17
-  just_audio_media_kit: ^2.0.4
-  media_kit: ^1.1.1                              # Primary package.
+  audioplayers: ^6.0.0  
+  audioplayers_linux: ^4.0.0
+  # just_audio_media_kit: ^2.0.4
+  # media_kit: ^1.1.1                              # Primary package.
   
-  media_kit_native_event_loop: ^1.0.6            # Support for higher number of concurrent instances & better performance.
+  # media_kit_native_event_loop: ^1.0.6            # Support for higher number of concurrent instances & better performance.
   
 
   # The following adds the Cupertino Icons font to your application.
