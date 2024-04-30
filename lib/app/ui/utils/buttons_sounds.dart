@@ -1,5 +1,7 @@
 // import 'package:just_audio/just_audio.dart';
-import 'package:simple_audio/simple_audio.dart';
+import 'package:kplayer/kplayer.dart';
+// import 'package:simple_audio/simple_audio.dart';
+// import 'package:audio_in_app/audio_in_app.dart';
 
 // ...
 // void sss() async {
@@ -14,6 +16,7 @@ import 'package:simple_audio/simple_audio.dart';
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
   // static AudioPlayer audioPlayer = AudioPlayer();
+  // static AudioInApp _audioInApp = AudioInApp();
   // Función para reproducir el sonido
   static void playSound({String? sound}) async {
     print(
@@ -23,13 +26,20 @@ class ButtonsSounds {
     try {
 // final player = AudioPlayer();
       // await audioPlayer.play(AssetSource(soundPath));
+      // await _audioInApp.createNewAudioCache(
+      //     playerId: 'button',
+      //     route:
+      //         'https://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg',
+      //     audioInAppType: AudioInAppType.background);
+      // await _audioInApp.play(playerId: 'button');
+      var player = Player.asset(soundPath);
+      player.play();
+      // SimpleAudio _audioPlayer;
+      // bool _isPlaying = false;
 
-      SimpleAudio _audioPlayer;
-      bool _isPlaying = false;
-
-      _audioPlayer = SimpleAudio();
-      _audioPlayer.open(soundPath);
-      _audioPlayer.play();
+      // _audioPlayer = SimpleAudio();
+      // _audioPlayer.open(soundPath);
+      // _audioPlayer.play();
 
       // final engine = minisound.Engine();
       // await engine.init();

@@ -77,7 +77,8 @@ dependencies:
   file_picker: ^6.1.1
   image: ^4.0.17
   simple_audio: ^1.9.0
-  # audioplayers_linux: ^4.0.0
+  audio_in_app: ^2.1.1
+  kplayer: ^0.4.2
   # just_audio_media_kit: ^2.0.4
   # media_kit: ^1.1.1                              # Primary package.
   
