@@ -5,8 +5,11 @@ class PuertasController extends GetxController {
   int get selectPuerta => _selectPuerta.value;
   set selectPuerta(int value) => _selectPuerta.value = value;
 
-  final listaPuertas =
-      ([Puerta('calzada_p1', true), Puerta('calzada_p2', false)]);
+  final listaPuertas = ([
+    Puerta('calzada_p1', true, false),
+    Puerta('calzada_p2', false, false),
+    Puerta('calzada_p2', false, true)
+  ]);
 }
 
 class Puerta {
@@ -16,5 +19,6 @@ class Puerta {
       0; // Variable estática para mantener el contador único
   final int id;
   final bool select = false;
-  Puerta(this.image, this.local) : id = _idCounter++;
+  final bool noAcceso;
+  Puerta(this.image, this.local, this.noAcceso) : id = _idCounter++;
 }

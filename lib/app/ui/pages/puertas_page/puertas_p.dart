@@ -58,53 +58,62 @@ class PuertasPage extends GetView<PuertasController> {
   }
 
   Widget buildPuerta(Puerta p) {
-    return Obx(() {
-      final select = self.selectPuerta;
-      return Stack(
-        children: [
-          Center(child: Image.asset('assets/images/${p.image}.jpeg')),
-          BtnIcon(
-              hoverColor: const Color.fromARGB(47, 54, 105, 244),
-              borderWidth: 1,
-              borderColor: p.local ? LightModeTheme().primary : null,
-              fillColor: select == p.id
-                  ? const Color.fromARGB(47, 54, 105, 244)
-                  : null,
-              width: Get.width,
-              height: Get.height,
-              onPressed: () {
-                ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
-                Timer(const Duration(seconds: 1), () {
-                  Get.offAllNamed(Routes.SAFEY);
-                });
-                Get.dialog(Container(
-                  color: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      BtnIcon(
-                          onPressed: Get.back,
-                          fillColor: const Color.fromARGB(0, 0, 0, 0),
-                          icon: Icon(
-                            Icons.check_circle_sharp,
-                            size: 200,
-                            color: LightModeTheme().success,
-                          )),
-                      Text(
-                        'Puerta abierta',
-                        textAlign: TextAlign.center,
-                        style: LightModeTheme().bodyLarge.copyWith(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 60,
-                            decoration: TextDecoration.none),
-                      )
-                    ],
-                  ),
-                ));
-              },
-              icon: const SizedBox.shrink()),
-        ],
-      );
-    });
+    return Stack(
+      children: [
+        Center(
+            child: Container(
+                decoration: p.noAcceso
+                    ? BoxDecoration(
+                        border:
+                            Border.all(color: LightModeTheme().error, width: 2))
+                    : null,
+                child: Image.asset('assets/images/${p.image}.jpeg'))),
+        BtnIcon(
+            hoverColor: const Color.fromARGB(47, 54, 105, 244),
+            borderWidth: 1,
+            borderColor: p.local ? LightModeTheme().primary : null,
+            width: Get.width,
+            height: Get.height,
+            onPressed: p.noAcceso
+                ? null
+                : () {
+                    ButtonsSounds.playSound(
+                        sound: "assets/audios/success_pin.wav");
+                    Timer(const Duration(seconds: 1), () {
+                      Get.offAllNamed(Routes.SAFEY);
+                    });
+                    Get.dialog(Scaffold(
+                      body: Center(
+                        child: Container(
+                          color: Colors.white,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BtnIcon(
+                                  onPressed: Get.back,
+                                  fillColor: const Color.fromARGB(0, 0, 0, 0),
+                                  hoverColor: Colors.transparent,
+                                  icon: Icon(
+                                    Icons.check_circle_sharp,
+                                    size: 200,
+                                    color: LightModeTheme().success,
+                                  )),
+                              Text(
+                                'Puerta abierta',
+                                textAlign: TextAlign.center,
+                                style: LightModeTheme().bodyLarge.copyWith(
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 60,
+                                    decoration: TextDecoration.none),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ));
+                  },
+            icon: const SizedBox.shrink()),
+      ],
+    );
   }
 }
