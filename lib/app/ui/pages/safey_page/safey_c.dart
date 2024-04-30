@@ -50,9 +50,9 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
           backValidarPin = callback;
           validarPin = null;
           if (callback) {
-            ButtonsSounds.playSound(sound: "audios/success_pin.wav");
+            ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
           } else {
-            ButtonsSounds.playSound(sound: "audios/error_pin2.wav");
+            ButtonsSounds.playSound(sound: "assets/audios/error_pin2.wav");
           }
         }
       }
@@ -60,7 +60,7 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
   }
 
   void onTap(Rx<ButtonAnimation> buttonAnimation) {
-    ButtonsSounds.playSound(sound: "audios/click_pin.wav");
+    ButtonsSounds.playSound(sound: "assets/audios/click_pin.wav");
     changePin(buttonAnimation.value.text);
     buttonAnimation.value.ativate = true;
     buttonAnimation.refresh();
