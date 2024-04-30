@@ -16,16 +16,6 @@ G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {
-  GList* windows = gtk_application_get_windows(GTK_APPLICATION(application));
-  if(windows)
-  {
-    gtk_window_present_with_time(
-    GTK_WINDOW(windows->data),
-    g_get_monotonic_time() / 1000
-  );
-  return;
- }
-
   MyApplication* self = MY_APPLICATION(application);
   GtkWindow* window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
