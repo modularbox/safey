@@ -92,7 +92,7 @@ set_target_properties(${BINARY_NAME}
 include(flutter/generated_plugins.cmake)
 
 # just_audio_media_kit 2.0.4
-target_link_libraries(${BINARY_NAME} PRIVATE mimalloc)
+target_link_libraries(${BINARY_NAME} PRIVATE ${MIMALLOC_LIB})
 
 # === Installation ===
 # By default, "installing" just makes a relocatable bundle in the build
