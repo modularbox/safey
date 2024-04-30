@@ -1,21 +1,19 @@
 // import 'package:just_audio/just_audio.dart';
-import "package:minisound/minisound.dart" as minisound;
-import 'package:audioplayers/audioplayers.dart';
 import 'package:simple_audio/simple_audio.dart';
 
 // ...
-void sss() async {
-  final engine = minisound.Engine();
-  await engine.init();
-  final sound = await engine.loadSoundAsset("asset/path.ext");
-  sound.volume = 0.5;
-  await engine.start();
-  sound.play();
-}
+// void sss() async {
+//   final engine = minisound.Engine();
+//   await engine.init();
+//   final sound = await engine.loadSoundAsset("asset/path.ext");
+//   sound.volume = 0.5;
+//   await engine.start();
+//   sound.play();
+// }
 
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
-  static AudioPlayer audioPlayer = AudioPlayer();
+  // static AudioPlayer audioPlayer = AudioPlayer();
   // Función para reproducir el sonido
   static void playSound({String? sound}) async {
     print(
