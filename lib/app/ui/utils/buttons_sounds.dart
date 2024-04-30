@@ -1,5 +1,5 @@
 // import 'package:just_audio/just_audio.dart';
-import 'package:kplayer/kplayer.dart';
+// import 'package:kplayer/kplayer.dart';
 // import 'package:simple_audio/simple_audio.dart';
 // import 'package:audio_in_app/audio_in_app.dart';
 
@@ -13,6 +13,24 @@ import 'package:kplayer/kplayer.dart';
 //   sound.play();
 // }
 
+import 'dart:io';
+
+Future<void> reproducirAudio(String rutaAudio) async {
+  try {
+    // Llama al script de shell y proporciona la ruta del archivo de audio como argumento
+    ProcessResult result = await Process.run('./play.sh', [rutaAudio]);
+
+    // Verifica si el proceso se ejecutó exitosamente
+    if (result.exitCode == 0) {
+      print('El audio se reprodujo correctamente.');
+    } else {
+      print('Hubo un error al reproducir el audio: ${result.stderr}');
+    }
+  } catch (e) {
+    print('Error al ejecutar el script: $e');
+  }
+}
+
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
   // static AudioPlayer audioPlayer = AudioPlayer();
@@ -24,6 +42,7 @@ class ButtonsSounds {
     final soundPath = sound ?? "assets/sounds/click_button.mp3";
     print(soundPath);
     try {
+      await reproducirAudio(soundPath);
 // final player = AudioPlayer();
       // await audioPlayer.play(AssetSource(soundPath));
       // await _audioInApp.createNewAudioCache(
@@ -32,8 +51,8 @@ class ButtonsSounds {
       //         'https://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg',
       //     audioInAppType: AudioInAppType.background);
       // await _audioInApp.play(playerId: 'button');
-      var player = Player.asset(soundPath);
-      player.play();
+      // var player = Player.asset(soundPath);
+      // player.play();
       // SimpleAudio _audioPlayer;
       // bool _isPlaying = false;
 
