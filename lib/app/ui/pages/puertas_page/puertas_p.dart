@@ -1,9 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:safey/app/routes/app_pages.dart';
+import 'package:safey/app/data/models/mensajes.dart';
+import 'package:safey/app/ui/global_widgets/dialogs.dart';
 import 'package:safey/app/ui/utils/btn_icon.dart';
-import 'package:safey/app/ui/utils/buttons_sounds.dart';
 import 'package:safey/flutter_flow/flutter_flow_theme.dart';
 import 'puertas_c.dart';
 
@@ -23,12 +22,12 @@ class PuertasPage extends GetView<PuertasController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Hola Miguel!',
+                        hola,
                         style:
                             LightModeTheme().bodyLarge.copyWith(fontSize: 40),
                       ),
                       Text(
-                        'Selecciona la puerta',
+                        puertaSeleccion,
                         style: LightModeTheme().bodyLarge.copyWith(
                             color: LightModeTheme().primary, fontSize: 30),
                         textAlign: TextAlign.center,
@@ -36,7 +35,6 @@ class PuertasPage extends GetView<PuertasController> {
                       Expanded(
                         child: GridView(
                           padding: EdgeInsets.zero,
-                          physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
@@ -65,53 +63,28 @@ class PuertasPage extends GetView<PuertasController> {
                 decoration: p.noAcceso
                     ? BoxDecoration(
                         border:
-                            Border.all(color: LightModeTheme().error, width: 2))
+                            Border.all(color: LightModeTheme().error, width: 5))
                     : null,
                 child: Image.asset('assets/images/${p.image}.jpeg'))),
+        p.noAcceso
+            ? Icon(
+                Icons.close,
+                color: LightModeTheme().error,
+                size: 240,
+                shadows: const [
+                  BoxShadow(color: Color.fromARGB(255, 0, 0, 0), blurRadius: 10)
+                ],
+              )
+            : const SizedBox.shrink(),
         BtnIcon(
             hoverColor: const Color.fromARGB(47, 54, 105, 244),
-            borderWidth: 1,
+            borderWidth: 8,
             borderColor: p.local ? LightModeTheme().primary : null,
             width: Get.width,
             height: Get.height,
             onPressed: p.noAcceso
-                ? null
-                : () {
-                    ButtonsSounds.playSound(
-                        sound: "assets/audios/success_pin.wav");
-                    Timer(const Duration(seconds: 1), () {
-                      Get.offAllNamed(Routes.SAFEY);
-                    });
-                    Get.dialog(Scaffold(
-                      body: Center(
-                        child: Container(
-                          color: Colors.white,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              BtnIcon(
-                                  onPressed: Get.back,
-                                  fillColor: const Color.fromARGB(0, 0, 0, 0),
-                                  hoverColor: Colors.transparent,
-                                  icon: Icon(
-                                    Icons.check_circle_sharp,
-                                    size: 200,
-                                    color: LightModeTheme().success,
-                                  )),
-                              Text(
-                                'Puerta abierta',
-                                textAlign: TextAlign.center,
-                                style: LightModeTheme().bodyLarge.copyWith(
-                                    color: const Color.fromARGB(255, 0, 0, 0),
-                                    fontSize: 60,
-                                    decoration: TextDecoration.none),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ));
-                  },
+                ? buildDialogNoAccesso
+                : (p.impago ? buildDialogErrorImpago : buildDialogSuccess),
             icon: const SizedBox.shrink()),
       ],
     );

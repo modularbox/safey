@@ -8,7 +8,9 @@ class PuertasController extends GetxController {
   final listaPuertas = ([
     Puerta('calzada_p1', true, false),
     Puerta('calzada_p2', false, false),
-    Puerta('calzada_p2', false, true)
+    Puerta('puerta_riolobos', false, true),
+    Puerta('puerta_pabellon', false, false),
+    Puerta('puerta_entrada_riolobos', false, false, impago: true),
   ]);
 }
 
@@ -20,5 +22,7 @@ class Puerta {
   final int id;
   final bool select = false;
   final bool noAcceso;
-  Puerta(this.image, this.local, this.noAcceso) : id = _idCounter++;
+  final bool impago;
+  Puerta(this.image, this.local, this.noAcceso, {this.impago = false})
+      : id = _idCounter++;
 }

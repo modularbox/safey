@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:safey/app/routes/app_pages.dart';
+import 'package:safey/app/ui/global_widgets/dialogs.dart';
 import 'package:safey/app/ui/utils/buttons_sounds.dart';
 import 'package:safey/flutter_flow/flutter_flow_animations.dart';
 
@@ -77,6 +78,7 @@ class SafeyController extends GetxController with GetTickerProviderStateMixin {
         } else {
           validarPin = false;
           pin = '';
+          buildDialogCodigoErroneo();
         }
       }
     } else if (pin == '*') {
