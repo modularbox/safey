@@ -40,11 +40,10 @@ class ButtonsSounds {
   static void playSound({String? sound}) async {
     print(
         "--------------------------------------------------------------------------------------------");
-    final soundPath =
-        sound ?? "/home/modularbox/github/safey/assets/sounds/click_button.mp3";
+    final soundPath = sound ?? "assets/sounds/click_button.mp3";
     print(soundPath);
     try {
-      await reproducirAudio(soundPath);
+      await reproducirAudio('/home/modularbox/github/safey/$soundPath');
 // final player = AudioPlayer();
       // await audioPlayer.play(AssetSource(soundPath));
       // await _audioInApp.createNewAudioCache(
