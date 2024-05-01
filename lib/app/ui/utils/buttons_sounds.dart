@@ -18,7 +18,8 @@ import 'dart:io';
 Future<void> reproducirAudio(String rutaAudio) async {
   try {
     // Llama al script de shell y proporciona la ruta del archivo de audio como argumento
-    ProcessResult result = await Process.run('./play.sh', [rutaAudio]);
+    ProcessResult result =
+        await Process.run('assets/script/play.sh', [rutaAudio]);
 
     // Verifica si el proceso se ejecutó exitosamente
     if (result.exitCode == 0) {
