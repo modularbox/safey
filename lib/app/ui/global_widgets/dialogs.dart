@@ -67,8 +67,13 @@ buildDialogNoAccesso() {
 
 void buildDialogSuccess() {
   ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
+  reproducirTextoAudio(dialogSuccess);
   Timer(const Duration(seconds: 3), () {
+    reproducirTextoAudio(cerrarPuerta);
     Get.offAllNamed(Routes.SAFEY);
+  });
+  Timer(const Duration(seconds: 5), () {
+    reproducirTextoAudio(cerrarPuerta);
   });
   Get.dialog(Scaffold(
     body: Center(
