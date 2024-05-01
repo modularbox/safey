@@ -33,6 +33,7 @@ Future<void> reproducirAudio(String rutaAudio) async {
 }
 
 Future<void> reproducirTextoAudio(String rutaAudio) async {
+  print("Reproducir tecto audio");
   try {
     // Llama al script de shell y proporciona la ruta del archivo de audio como argumento
     ProcessResult result = await Process.run(
