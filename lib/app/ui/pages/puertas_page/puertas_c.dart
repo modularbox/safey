@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:safey/app/data/models/mensajes.dart';
+import 'package:safey/app/ui/utils/buttons_sounds.dart';
 
 class PuertasController extends GetxController {
   final _selectPuerta = (-1).obs;
@@ -12,6 +14,13 @@ class PuertasController extends GetxController {
     Puerta('puerta_pabellon', false, false),
     Puerta('puerta_entrada_riolobos', false, false, impago: true),
   ]);
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    reproducirTextoAudio(hola);
+  }
 }
 
 class Puerta {

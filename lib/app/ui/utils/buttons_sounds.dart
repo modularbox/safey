@@ -32,6 +32,24 @@ Future<void> reproducirAudio(String rutaAudio) async {
   }
 }
 
+Future<void> reproducirTextoAudio(String rutaAudio) async {
+  try {
+    // Llama al script de shell y proporciona la ruta del archivo de audio como argumento
+    ProcessResult result = await Process.run(
+        '/home/modularbox/github/safey/assets/script/play_text.sh',
+        [rutaAudio]);
+
+    // Verifica si el proceso se ejecutó exitosamente
+    if (result.exitCode == 0) {
+      print('El audio se reprodujo correctamente.');
+    } else {
+      print('Hubo un error al reproducir el audio: ${result.stderr}');
+    }
+  } catch (e) {
+    print('Error al ejecutar el script: $e');
+  }
+}
+
 class ButtonsSounds {
   // static AudioPlayer sound1 = new AudioPlayer();
   // static AudioPlayer audioPlayer = AudioPlayer();

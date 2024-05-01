@@ -1,4 +1,7 @@
-const dialogSuccess = "Puerta abierta";
+const dialogSuccess = "Abriendo puerta";
+
+// Por favor cierre la puerta dos veces
+const cerrarPuerta = 'Por favor cierre la puerta';
 
 const hola = "Hola Julio";
 

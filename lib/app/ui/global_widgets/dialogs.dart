@@ -48,14 +48,21 @@ void buildDialogError(String text) {
 
 buildDialogCodigoErroneo() {
   buildDialogError(codigoErroneo);
+  reproducirTextoAudio(codigoErroneo);
 }
 
 buildDialogErrorImpago() {
   buildDialogError(impago);
+  reproducirTextoAudio(impago);
+}
+
+buildDialogHola() {
+  reproducirTextoAudio(hola);
 }
 
 buildDialogNoAccesso() {
   buildDialogError(dialogError);
+  reproducirTextoAudio(dialogError);
 }
 
 void buildDialogSuccess() {
