@@ -115,7 +115,7 @@ flutter:
   assets:
     # - assets/fonts/
     - assets/images/
-    # - assets/videos/
+    - assets/script/
     - assets/audios/
     # - assets/lottie_animations/
     # - assets/rive_animations/
