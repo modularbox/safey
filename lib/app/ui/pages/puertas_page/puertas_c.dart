@@ -19,7 +19,7 @@ class PuertasController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    reproducirTextoAudio(hola);
+    reproducirTextoAudio(hola, 'hola');
   }
 }
 

@@ -32,13 +32,13 @@ Future<void> reproducirAudio(String rutaAudio) async {
   }
 }
 
-Future<void> reproducirTextoAudio(String rutaAudio) async {
+Future<void> reproducirTextoAudio(String rutaAudio, String nameAudio) async {
   print("Reproducir tecto audio");
   try {
     // Llama al script de shell y proporciona la ruta del archivo de audio como argumento
     ProcessResult result = await Process.run(
         '/home/modularbox/github/safey/assets/script/play_text.sh',
-        [rutaAudio]);
+        [rutaAudio, nameAudio]);
 
     // Verifica si el proceso se ejecutó exitosamente
     if (result.exitCode == 0) {

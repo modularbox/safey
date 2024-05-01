@@ -48,32 +48,28 @@ void buildDialogError(String text) {
 
 buildDialogCodigoErroneo() {
   buildDialogError(codigoErroneo);
-  reproducirTextoAudio(codigoErroneo);
+  reproducirTextoAudio(codigoErroneo, 'codigo_erroneo');
 }
 
 buildDialogErrorImpago() {
   buildDialogError(impago);
-  reproducirTextoAudio(impago);
-}
-
-buildDialogHola() {
-  reproducirTextoAudio(hola);
+  reproducirTextoAudio(impago, "impago");
 }
 
 buildDialogNoAccesso() {
   buildDialogError(dialogError);
-  reproducirTextoAudio(dialogError);
+  reproducirTextoAudio(dialogError, "error");
 }
 
 void buildDialogSuccess() {
   ButtonsSounds.playSound(sound: "assets/audios/success_pin.wav");
-  reproducirTextoAudio(dialogSuccess);
+  reproducirTextoAudio(dialogSuccess, 'success');
   Timer(const Duration(seconds: 3), () {
-    reproducirTextoAudio(cerrarPuerta);
+    reproducirTextoAudio(cerrarPuerta, 'cerrar');
     Get.offAllNamed(Routes.SAFEY);
   });
   Timer(const Duration(seconds: 5), () {
-    reproducirTextoAudio(cerrarPuerta);
+    reproducirTextoAudio(cerrarPuerta, 'cerrar');
   });
   Get.dialog(Scaffold(
     body: Center(
