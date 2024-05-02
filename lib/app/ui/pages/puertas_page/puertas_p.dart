@@ -13,7 +13,8 @@ class PuertasPage extends GetView<PuertasController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
+        child: Align(
+            alignment: Alignment.centerLeft,
             child: SizedBox(
                 width: 480.0,
                 height: 710.0,

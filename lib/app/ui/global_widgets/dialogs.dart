@@ -14,7 +14,8 @@ void buildDialogError(String text) {
     Get.back();
   });
   Get.dialog(Scaffold(
-    body: Center(
+    body: Align(
+      alignment: Alignment.centerLeft,
       child: Container(
         width: 480.0,
         height: 710.0,
@@ -72,7 +73,8 @@ void buildDialogSuccess() {
     reproducirTextoAudio(cerrarPuerta, 'cerrar');
   });
   Get.dialog(Scaffold(
-    body: Center(
+    body: Align(
+      alignment: Alignment.centerLeft,
       child: Container(
         color: Colors.white,
         child: Column(

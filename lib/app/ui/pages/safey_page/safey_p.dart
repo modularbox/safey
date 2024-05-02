@@ -12,7 +12,8 @@ class SafeyPage extends GetView<SafeyController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Align(
+        alignment: Alignment.centerLeft,
         child: SizedBox(
             width: 480.0,
             height: 710.0,
